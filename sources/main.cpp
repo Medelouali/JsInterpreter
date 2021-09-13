@@ -1,10 +1,8 @@
 #include <iostream>
-
-using namespace std;
+#include "../headers/classes/js.h"
 
 int main(int argc, char **argv){
-	cout<<"Hello World"<<endl;
-	cout<<"Hello World"<<endl;
-	cout<<"Hello World"<<endl;
+	Js js=Js();
+	std::cout<<js.getInfo("version")<<std::endl;
 	return 0;
 };
