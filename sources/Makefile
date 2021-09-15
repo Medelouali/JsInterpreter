@@ -1,8 +1,10 @@
 
 CC=g++
+f1=./main.cpp
+f2=./jsClass/js.cpp
 
 all: compile
 
 compile:
-	@${CC} -g -o ./main.exe ./main.cpp ./jsClass/js.cpp
+	@${CC} -g -o ./main.exe ${f1} ${f2}
 	@./main.exe
