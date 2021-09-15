@@ -1,6 +1,6 @@
 #include<string>
 #include<vector>
-#include  "../headers/classes/js.h"
+#include  "js.h"
 
 Js::Js(){
     software="Interpreter";

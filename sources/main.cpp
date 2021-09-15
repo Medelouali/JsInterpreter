@@ -1,8 +1,16 @@
 #include <iostream>
-#include "../headers/classes/js.h"
+#include <string>
+#include "./jsClass/js.h"
 
+using namespace std;
 int main(int argc, char **argv){
 	Js js=Js();
-	std::cout<<js.getInfo("version")<<std::endl;
+	string line;
+	cout<<"Interpreter version: "<<js.getInfo("version")<<endl;
+	do{
+		cout<<">> ";
+		getline(cin, line);
+		cout<<">> "<<js.process(line)<<endl;
+	}while(1);
 	return 0;
 };
