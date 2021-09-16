@@ -1,6 +1,7 @@
 #include<string>
 #include<vector>
 #include  "js.h"
+#include "engine/engine.h"
 
 Js::Js(){
     software="Interpreter";
@@ -11,7 +12,7 @@ Js::Js(){
 
 std::string Js::process(std::string& command){
     //for the moment just return the string
-    return command;
+    return engine(command);
 };
 
 std::string Js::getInfo(const std::string& key){
