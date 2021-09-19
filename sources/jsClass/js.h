@@ -2,13 +2,14 @@
 
 #include<string>
 #include<vector>
+#include <map>
 
 class Js{
     private:
-        std::string version, developper, description, software;
+        std::map<std::string, std::string> info;
     public:
         Js();
         std::string process(std::string& command);//process the command
-        std::string getInfo(const std::string& key);//get info about the interpreter;
+        std::map<std::string, std::string> getInfo();//get info about the interpreter;
         ~Js();
 };

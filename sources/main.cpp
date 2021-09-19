@@ -6,7 +6,7 @@ using namespace std;
 int main(int argc, char **argv){
 	Js js=Js();
 	string line;
-	cout<<"Interpreter version: "<<js.getInfo("version")<<endl;
+	for(auto key: js.getInfo()) cout<<"| "<<key.first<<": "<<key.second<<endl;
 	do{
 		cout<<">> ";
 		getline(cin, line);
