@@ -31,8 +31,20 @@ long unsigned int countWord(const std::string& base, const  std::string& word){
 };
 
 std::string cutOff(long unsigned int n1, long unsigned int n2, const std::string& base){
-        //do something
-	return "";
+        std::string str; 
+        long unsigned int len=base.length();
+        if(n1<0 || n2<0 || n2<n1 || n1>=len || n2>=len) return base;
+        for(long unsigned int i=0; i<n1; i++) str.push_back(base[i]);
+        for(long unsigned int i=n2+1; i<len; i++) str.push_back(base[i]);
+	return str;
+};
+
+std::string slice(long unsigned int n1, long unsigned int n2, const std::string& base){
+        std::string str; 
+        long unsigned int len=base.length();
+        if(n1<0 || n2<0 || n2<n1 || n1>=len || n2>=len) return str;
+        while(n1<=n2 && n1<len) str.push_back(base[n1++]);
+        return str;
 };
 
 std::string format(const  std::string& base, ...){
@@ -45,3 +57,7 @@ bool isCharIn(const std::string& base, char ch){
 	return true;
 };
 
+
+std::string phrase(std::string ph, std::string errorType){
+	return errorType + ": " + ph;
+};

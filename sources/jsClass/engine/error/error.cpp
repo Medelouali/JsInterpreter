@@ -4,13 +4,32 @@
 #include <typeinfo>
 #include "./tools/strings/strings.h"
 
-std::string phrase(std::string ph, std::string errorType="Syntax error"){
-	return errorType + ": " + ph;
-};
-//symetry of ", ', `, (, ), [, ], {, }
-bool paren(const std::string& base, char ch){
 
-	return false;
+//symetry of ", ', `, (, ), [, ], {, }
+bool correspond(const std::string& base, char open, char close){
+	bool cor=true;
+	long int lastOpen=-1;
+	std::string temp;
+	if(countChar(base, open)==0 && countChar(base, close)==0) return true;
+	for(long int i=0; i<base.length(); i++){
+		if(base[i]==open){
+			lastOpen=i;
+		};
+		if(base[i]==close){
+			if(lastOpen==-1){
+				cor=false;
+				break;
+			}else{
+				temp=cutOff(i, i, base);
+				temp=cutOff(lastOpen, lastOpen, temp);
+				cor=correspond(temp, open, close);
+				if(!cor) break;				
+			}
+			continue;
+		};
+		if(i==base.length()-1 && lastOpen!=-1) cor=false;
+	};
+	return cor;
 };
 std::string symetry(const std::string& cmd){
 	std::string err="";
@@ -18,16 +37,16 @@ std::string symetry(const std::string& cmd){
 	for(int i=0; i<3; i++)
 		if(countChar(cmd, vect[i])%2)
 			return phrase("You forgot to open or close " +toStr(vect[i]));
-	for(int i=3; i<vect.size(); i++)
-		if(paren(cmd, vect[i])){
-			err=phrase("You forgot to open or close " + toStr(vect[i]));
+	for(int i=3; i<vect.size()-1; i+=2)
+		if(!correspond(cmd, vect[i], vect[i+1])){
+			err=phrase("You forgot to open or close " + toStr(vect[i]) + toStr(vect[i+1]));
 			break;
-		};
+		}
 	return err;
 };
 
 std::string syntax(std::string str){
-	std::string charsSet="zxcvbnmasdfghjklqwertyuiopZXCVBNMASDFGHJKLQWERTYUIOP0123456789!%^&|/*()_+-,.<>{}[]='\"`";
+	std::string charsSet="zxcvbnmasdfghjklqwertyuiopZXCVBNMASDFGHJKLQWERTYUIOP0123456789!%^&|/*()_+-,.<>{}[]=$'\"`";
 	std::string newStr="#" + str + "$";
 	std::string newCharsSet="#" + charsSet + "$";
 	std::string  err="";
