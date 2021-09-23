@@ -46,7 +46,7 @@ std::string symetry(const std::string& cmd){
 };
 
 std::string syntax(std::string str){
-	std::string charsSet="zxcvbnmasdfghjklqwertyuiopZXCVBNMASDFGHJKLQWERTYUIOP0123456789!%^&|/*()_+-,.<>{}[]=$'\"`";
+	std::string charsSet=" zxcvbnmasdfghjklqwertyuiopZXCVBNMASDFGHJKLQWERTYUIOP0123456789!%^&|/*()_+-,.<>{}[]=$'\"`?:";
 	std::string newStr="#" + str + "$";
 	std::string newCharsSet="#" + charsSet + "$";
 	std::string  err="";
