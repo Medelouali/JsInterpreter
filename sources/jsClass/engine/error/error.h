@@ -1,8 +1,6 @@
 #pragma once 
 #include <string>
 #include <vector>
-11
-11
 
 const std::vector<std::string> errorMatrix{
     //        zxcvbnmasdfghjklqwertyuiopZXCVBNMASDFGHJKLQWERTYUIOP0123456789!%^&|/*()_+-,.<>{}[]=$'"`?:
