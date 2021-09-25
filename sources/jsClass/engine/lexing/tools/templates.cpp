@@ -11,7 +11,7 @@ long int isIn(std::vector<T> vect, T item){
     return found;
 };
 
-template<typename T> std::vector<T> combine(const std::vector<T>& v1, const std::vector<T>& v2){
+template<typename T> std::vector<T> combine(const std::vector<T> v1, const std::vector<T> v2){
     std::vector<T> vect;
     for(auto v: v1) vect.push_back(v);
     for(auto v: v2) vect.push_back(v);

@@ -3,9 +3,9 @@
 #include "./../error/tools/strings/strings.h"
 
 //There are two cases binary operators or unary operators that's it;
-std::vector<std::string> lexer(std::string& base, std::vector<std::string>& ops){
+std::vector<std::string> lexer(const std::string& base, std::vector<std::string>& ops){
     std::vector<std::string> vect;
-    static std::vector<std::string> original=ops;
+    static std::vector<std::string> original=ops, vect1, vect2, vect3;
     long unsigned int n=base.length(), opSize=ops.size();
     std::string op, lString="", rString="";
 
@@ -24,10 +24,10 @@ std::vector<std::string> lexer(std::string& base, std::vector<std::string>& ops)
             vect.push_back(slice(rightOperand.start, rightOperand.end, base));
             rString=slice(rightOperand.end+1, n-1, base);
         };
-        return combine<std::string>(
-                    combine<std::string>(lexer(lString, ops), vect), 
-                    lexer(rString, original)
-                );
+        vect1=lexer(lString, ops); 
+        vect2=combine<std::string>(vect1, vect);
+        vect3=lexer(rString, original);
+        return combine<std::string>(vect2, vect3);
     };
     return lexer(base, ops);
 };

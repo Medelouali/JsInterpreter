@@ -4,7 +4,7 @@
 #include <vector>
 #include "tools/templates.h"
 
-std::vector<std::string> lexer(std::string& base, std::vector<std::string>& ops);
+std::vector<std::string> lexer(const std::string& base, std::vector<std::string>& ops);
 
 /*
 const name="Med"
