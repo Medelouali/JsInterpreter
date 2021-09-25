@@ -4,6 +4,11 @@
 #include<vector>
 
 std::vector<std::string> lexer(std::string& base);
+std::vector<std::string> operators{
+    "===", "==", "&&", "||", "%", 
+    "!", "&", ".", "|", "~", "^", "*", "/", 
+    "+", "-", "=",
+};
 /*
 const name="Med"
 const obj={x: 10, y: 99.282}

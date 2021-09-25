@@ -1,5 +1,12 @@
 #include <string>
 
+typedef struct word{
+    long int start=-1;
+    long int end=-1;
+    bool found=false;
+} word;
+
+
 
 //counting stuff
 long unsigned int countChar(const std::string& base, char ch);
@@ -12,3 +19,5 @@ std::string slice(long unsigned int n1, long unsigned int n2, const std::string&
 std::string format(std::string base, ...);
 std::string phrase(std::string ph, std::string errorType="Syntax error");
 bool isCharIn(const std::string& base, char ch);
+
+word findWord(const std::string& base, const std::string& ph);

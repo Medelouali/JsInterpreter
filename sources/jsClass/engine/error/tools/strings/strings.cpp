@@ -61,3 +61,18 @@ bool isCharIn(const std::string& base, char ch){
 std::string phrase(std::string ph, std::string errorType){
 	return errorType + ": " + ph;
 };
+
+word findWord(const std::string& base, const std::string& ph){
+        word w;
+        long unsigned int n=base.length(), m=ph.length();
+        if(n<m) return w;
+        for(long unsigned int i=0; i<=n-m; i++){
+                if(ph==slice(i, m+i-1, base)){
+                        w.start=i;
+                        w.end=m+i-1;
+                        w.found=true;
+                        break;
+                }
+        };
+        return w;
+};
