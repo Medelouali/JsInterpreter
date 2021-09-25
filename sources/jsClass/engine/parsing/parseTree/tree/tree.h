@@ -1,5 +1,6 @@
 #pragma once 
-#include"./node/node.h"
+
+#include "node/node.h"
 
 class ParseTree{
     private:

@@ -1,10 +1,10 @@
-#include"templates.h"
+#include "templates.h"
 
 template<typename T>
 long int isIn(std::vector<T> vect, T item){
     long int found=-1, n=vect.size();
     for(long int i=0; i<n; i++)
-        if(it==item){
+        if(vect[i]==item){
             found=i;
             break;
         };

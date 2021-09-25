@@ -2,16 +2,15 @@
 #include <string>
 #include "./jsClass/js.h"
 
-using namespace std;
 int main(int argc, char **argv){
 	Js js=Js();
-	string line, result;
-	for(auto key: js.getInfo()) cout<<"| "<<key.first<<": "<<key.second<<endl;
+	std::string line, result;
+	for(auto key: js.getInfo()) std::cout<<"| "<<key.first<<": "<<key.second<<std::endl;
 	do{
-		cout<<">> ";
-		getline(cin, line);
+		std::cout<<">> ";
+		getline(std::cin, line);
 		result=js.process(line);
-		if(result!="") cout<<">> "<<js.process(line)<<endl;
-	}while(1);
+		if(result!="") std::cout<<">> "<<js.process(line)<<std::endl;
+	}while(true);
 	return 0;
 };

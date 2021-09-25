@@ -1,14 +1,11 @@
 #pragma once
 
-#include<string>
-#include<vector>
+#include <string>
+#include <vector>
+#include "tools/templates.h"
 
-std::vector<std::string> lexer(std::string& base);
-std::vector<std::string> operators{
-    "===", "==", "&&", "||", "%", 
-    "!", "&", ".", "|", "~", "^", "*", "/", 
-    "+", "-", "=",
-};
+std::vector<std::string> lexer(std::string& base, std::vector<std::string>& ops);
+
 /*
 const name="Med"
 const obj={x: 10, y: 99.282}

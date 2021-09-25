@@ -62,6 +62,7 @@ std::string phrase(std::string ph, std::string errorType){
 	return errorType + ": " + ph;
 };
 
+
 word findWord(const std::string& base, const std::string& ph){
         word w;
         long unsigned int n=base.length(), m=ph.length();
@@ -73,6 +74,30 @@ word findWord(const std::string& base, const std::string& ph){
                         w.found=true;
                         break;
                 }
+        };
+        return w;
+};
+
+word operandIndex(long int start, const std::string& base, bool right){
+        std::string ops="^+/-*=%!&|~.()";
+        long int len=base.length();
+        word w;
+        if(!right){
+                for(long int i=start-1; i>=0; i--)
+                        if(indexOfChar(ops, base[i])!=-1){
+                                w.found=true;
+                                w.start=i+1;
+                                w.end=start-1;
+                                break;
+                        }
+        }else{
+                for(long int i=start+1; i<len; i++)
+                        if(indexOfChar(ops, base[i])!=-1){
+                                w.found=true;
+                                w.start=start+1;
+                                w.end=i-1;
+                                break;
+                        };
         };
         return w;
 };

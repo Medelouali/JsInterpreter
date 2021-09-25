@@ -2,7 +2,6 @@
 #include <string>
 #include <iostream>
 #include <typeinfo>
-#include "./tools/strings/strings.h"
 
 
 //symetry of ", ', `, (, ), [, ], {, }
