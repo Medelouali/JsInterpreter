@@ -6,9 +6,4 @@
 #include "parsing/parser.h"
 #include "reducing/reducer.h"
 
-std::vector<std::string> operators{
-    "&", "|", "+", "-", "="
-    "!", ".", "~", "^", "*", "/", 
-    "%", "&&", "||", "==", "==="
-};
 std::string engine(std::string& command); 

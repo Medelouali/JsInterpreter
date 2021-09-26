@@ -5,6 +5,12 @@
 #include "parsing/parser.h"
 #include "reducing/reducer.h"
 
+
+std::vector<std::string> operators{
+    "&", "|", "+", "-", "=", "(", ")",
+    "!", ".", "~", "^", "*", "/", 
+    "%", "&&", "||", "==", "==="
+};
 std::string engine(std::string& command){
 	std::string err= Error(command).error(), test="\n";
 	if(err!="") return err;
