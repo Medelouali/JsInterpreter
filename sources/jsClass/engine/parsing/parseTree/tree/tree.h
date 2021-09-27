@@ -6,6 +6,7 @@ class ParseTree{
     private:
         /* data */
         std::string err="";
+        //Node<>* root=nullptr;
     public:
         ParseTree(/* args */);
         std::string error();

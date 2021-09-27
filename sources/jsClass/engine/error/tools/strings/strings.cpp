@@ -39,9 +39,9 @@ std::string cutOff(long unsigned int n1, long unsigned int n2, const std::string
 	return str;
 };
 
-std::string slice(long unsigned int n1, long unsigned int n2, const std::string& base){
+std::string slice(long int n1, long int n2, const std::string& base){
         std::string str; 
-        long unsigned int len=base.length();
+        long int len=base.length();
         if(n1<0 || n2<0 || n2<n1 || n1>=len || n2>=len) return str;
         while(n1<=n2 && n1<len) str.push_back(base[n1++]);
         return str;
@@ -89,6 +89,13 @@ word operandIndex(long int start, const std::string& base, bool right){
                                 w.start=i+1;
                                 w.end=start-1;
                                 break;
+                        }else{
+                                if(i==0 && start>0){
+                                        w.found=true;
+                                        w.start=0;
+                                        w.end=start-1;
+                                        break;
+                                }
                         }
         }else{
                 for(long int i=start+1; i<len; i++)
@@ -97,6 +104,13 @@ word operandIndex(long int start, const std::string& base, bool right){
                                 w.start=start+1;
                                 w.end=i-1;
                                 break;
+                        }else{
+                                if(i==len-1 && start<len-1){
+                                        w.found=true;
+                                        w.start=start+1;
+                                        w.end=len-1;
+                                        break;
+                                }
                         };
         };
         return w;

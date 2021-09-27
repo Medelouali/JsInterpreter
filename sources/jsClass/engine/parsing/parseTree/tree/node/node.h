@@ -6,11 +6,11 @@
 template<typename T>
 class Node{
     public:
-        T nodeData=NULL;
-        Node* parent=NULL, *left=NULL, *right=NULL;
         std::string type;
+        T data;
+        Node* parent=nullptr, *left=nullptr, *right=nullptr;
         
-        Node(std::string t, T d): type(t), nodeData(d){};
+        Node(std::string t, T d): type(t), data(d){};
         ~Node(){};
 };
 

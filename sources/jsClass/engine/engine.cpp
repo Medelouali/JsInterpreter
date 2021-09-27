@@ -1,4 +1,5 @@
 #include <vector>
+#include <string>
 #include "engine.h"
 #include "error/error.h"
 #include "lexing/lexer.h"
@@ -12,11 +13,10 @@ std::vector<std::string> operators{
     "%", "&&", "||", "==", "==="
 };
 std::string engine(std::string& command){
-	std::string err= Error(command).error(), test="\n";
+	std::string err= "";
 	if(err!="") return err;
-	std::vector<std::string> tokens = lexer(command, operators);
-	for(auto tok: tokens) test+=tok+"\n";
-	return test;
+	std::vector<std::string> tokens = deleteItem<std::string>(lexer(command, operators), "");
+	//for(auto x: tokens) std::cout<<x<<std::endl;
 	if(tokens.size()==0) return "";
 	ParseTree commandTree = parser(tokens);
 	if(commandTree.error()!="") return commandTree.error();
