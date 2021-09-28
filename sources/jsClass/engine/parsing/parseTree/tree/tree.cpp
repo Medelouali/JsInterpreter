@@ -1,7 +1,7 @@
 #include<string>
 #include"tree.h"
 
-ParseTree::ParseTree(/* args */){};
+ParseTree::ParseTree(){};
 ParseTree::~ParseTree(){};
 
 std::string ParseTree::error(){

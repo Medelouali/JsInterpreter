@@ -1,16 +1,19 @@
 #pragma once
 
-#include<iostream>
-#include<string>
+#include "classes/classes.h"
+#include <iostream>
+#include <string>
+#include <variant>
 
-template<typename T>
 class Node{
     public:
         std::string type;
-        T data;
+        std::variant<js::array, js::boolean, js::number, js::object, js::string, js::tuple> data;
         Node* parent=nullptr, *left=nullptr, *right=nullptr;
         
-        Node(std::string t, T d): type(t), data(d){};
+        Node(std::string t,  
+            std::variant<js::array, js::boolean, js::number, js::object, js::string, js::tuple> d): 
+            type(t), data(d){};
         ~Node(){};
 };
 

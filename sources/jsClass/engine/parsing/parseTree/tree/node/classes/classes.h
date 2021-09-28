@@ -2,6 +2,7 @@
 
 namespace js{
     //including diff classes
+    #include "shared/shared.h"
     #include "array/array.h"
     #include "boolean/boolean.h"
     #include "number/number.h"

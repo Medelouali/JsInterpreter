@@ -4,12 +4,11 @@
 
 class ParseTree{
     private:
-        /* data */
         std::string err="";
-        //Node<>* root=nullptr;
+        Node* root=nullptr;
     public:
-        ParseTree(/* args */);
+        ParseTree();
         std::string error();
         void setError(std::string& er);
-        ~ParseTree();
+        ~ParseTree(){ delete root; };
 };

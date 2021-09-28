@@ -1,8 +1,7 @@
 #pragma once
 #include <string>
 #include <map>
-#include "functions/function.h"
-#include "attributes/attribute.h"
+#include "../shared/shared.h"
 
 class string{
     private:
