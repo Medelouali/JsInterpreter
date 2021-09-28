@@ -2,7 +2,6 @@
 #include"tree.h"
 
 ParseTree::ParseTree(){};
-ParseTree::~ParseTree(){};
 
 std::string ParseTree::error(){
     return this->err;
