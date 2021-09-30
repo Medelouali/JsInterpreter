@@ -17,6 +17,7 @@
         "utility": "cpp",
         "initializer_list": "cpp",
         "limits": "cpp",
-        "new": "cpp"
+        "new": "cpp",
+        "variant": "cpp"
     }
 }
