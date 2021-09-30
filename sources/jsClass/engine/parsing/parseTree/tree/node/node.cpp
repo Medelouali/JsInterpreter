@@ -1,8 +1,13 @@
+#include <string>
 #include "node.h"
 
-
-Node::Node(std::string t,  
-    std::variant<js::array, js::boolean, js::number, js::object, js::string, js::tuple> d): 
-    type(t), data(d){};
-        
+/*
+Node::Node(bool isOp, std::string dataType,  
+            std::variant<js::array<mixed>, js::boolean, js::number, js::object<mixed>, 
+            js::string, js::tuple<mixed>> d){
+            this->type_t.isOperator=isOp;
+            this->type_t.dataType=dataType;
+            this->data=d;
+};
+*/
 Node::~Node(){};

@@ -5,14 +5,24 @@
 #include <string>
 #include <variant>
 
+typedef struct mixed{
+    std::variant< js::array<mixed>, js::boolean, js::number, js::object<mixed>, 
+        js::string, js::tuple<mixed> > mixed_t;
+} mixed;
+
+typedef struct type{
+    bool isOperator=false;
+    std::string dataType="number";
+} type;
+
 class Node{
     public:
-        std::string type;
-        std::variant<js::array, js::boolean, js::number, js::object, js::string, js::tuple> data;
+        type type_t;
+        std::variant<js::array<mixed>, js::boolean, js::number, js::object<mixed>, 
+            js::string, js::tuple<mixed>> data;
         Node* parent=nullptr, *left=nullptr, *right=nullptr;
         
-        Node(std::string t,  
-            std::variant<js::array, js::boolean, js::number, js::object, js::string, js::tuple> d);
+        Node(bool isOp, std::string dataType,  const mixed& d){};
         ~Node();
 };
 
