@@ -7,7 +7,7 @@ namespace js{
 
 class boolean{
     private:
-        bool flag;
+        bool boolean_t;
         std::map<std::string, js::attribute> attributes;
         std::map<std::string, js::function> functions;
 

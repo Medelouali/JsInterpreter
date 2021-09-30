@@ -7,12 +7,12 @@ namespace js{
 
 class string{
     private:
-        std::string str;
+        std::string string_t;
         std::map<std::string, js::attribute> attributes;
         std::map<std::string, js::function> functions;
 
     public:
-        string(const std::string& st): str(st){};
+        string(const std::string& st): string_t(st){};
         std::string getString(void){ return "";};   
         ~string(){};
 };      

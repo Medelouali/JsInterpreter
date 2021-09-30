@@ -7,7 +7,7 @@ namespace js{
 
 class number{
     private:
-        long double value;
+        long double number_t;
         std::map<std::string, js::attribute> attributes;
         std::map<std::string, js::function> functions;
 

@@ -1,6 +1,9 @@
 import re
 import os
 
+# This script does generate the Makefile automatically for you, just run it,
+# don't add them manually
+
 def fileNums(num):
     filenum=""
     for i in range(num):
