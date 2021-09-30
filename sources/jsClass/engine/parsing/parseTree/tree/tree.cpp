@@ -21,3 +21,7 @@ void ParseTree::setError(std::string& er){
     this->err=er;
 };
 
+Node* ParseTree::buildTree(const std::vector<std::string>& tokens){
+    std::vector<Node> nodes=noder(tokens);
+    return builder(nodes);
+};

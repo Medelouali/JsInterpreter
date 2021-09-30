@@ -10,4 +10,3 @@ Node::Node(bool isOp, std::string dataType,
             this->data=d;
 };
 */
-Node::~Node(){};

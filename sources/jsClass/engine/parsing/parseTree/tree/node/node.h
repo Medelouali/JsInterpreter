@@ -16,18 +16,9 @@ typedef struct type{
     std::string dataType="number";
 } type;
 
-class Node{
-    public:
-        type type_t;
-        mixed data;
-        Node* parent=nullptr, *left=nullptr, *right=nullptr;
-        
-        Node(bool isOp, std::string dataType,  const mixed& d){
-            this->type_t.isOperator=isOp;
-            this->type_t.dataType=dataType;
-            this->data=d;
-        };
-
-        ~Node();
-};
+typedef struct node{
+    type type_t;
+    mixed data;
+    node* parent=nullptr, *left=nullptr, *right=nullptr;
+} Node;
 

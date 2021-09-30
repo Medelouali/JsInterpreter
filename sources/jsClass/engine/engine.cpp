@@ -16,7 +16,6 @@ std::string engine(std::string& command){
 	std::string err= "";
 	if(err!="") return err;
 	std::vector<std::string> tokens = deleteItem<std::string>(lexer(command, operators), "");
-	//for(auto x: tokens) std::cout<<x<<std::endl;
 	if(tokens.size()==0) return "";
 	ParseTree commandTree = parser(tokens);
 	if(commandTree.error()!="") return commandTree.error();
