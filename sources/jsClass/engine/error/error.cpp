@@ -44,31 +44,31 @@ std::string symetry(const std::string& cmd){
 	return err;
 };
 
-std::string syntax(std::string str){
-	std::string charsSet=" zxcvbnmasdfghjklqwertyuiopZXCVBNMASDFGHJKLQWERTYUIOP0123456789!%^&|/*()_+-,.<>{}[]=$'\"`?:";
-	std::string newStr="#" + str + "$";
-	std::string newCharsSet="#" + charsSet + "$";
+std::string syntax(const std::string& str){
+	std::string allowed="zxcvbnmasdfghjklqwertyuiopZXCVBNMASDFGHJKLQWERTYUIOP0123456789!%^&|/*()_+-,.<>{}[]=$'\"`?:;";
+	std::string cmd="#" + str + "$";
+	std::string allowed_t="#" + allowed;
 	std::string  err="";
 	if(str=="") return "Please type something, Enigma is waiting for you!";
-	for(long unsigned int i=0; i<newStr.length()-1; i++){
-		long int index=indexOfChar(charsSet, newStr[i]);
-		if(i>0 && index==-1){
-			err=phrase(toStr(newStr[i])+ 
+	for(long unsigned int i=0; i<cmd.length()-1; i++){
+		long int index=indexOfChar(allowed, cmd[i]);
+		if((i>0 && index==-1) || cmd[i]=='$'){
+			err=phrase(toStr(cmd[i])+ 
 				" is not allowed in Enigma commands as input, please read the docs");
 			break;
 		};
-		long int index_1=indexOfChar(newCharsSet, newStr[i]);
-		long int index_2=indexOfChar(newCharsSet, newStr[i+1])-1;
+		long int index_1=indexOfChar(allowed_t, cmd[i]);
+		long int index_2=indexOfChar(allowed_t, cmd[i+1])-1;
 		if(index_1!=-1 && index_2!=-1 && errorMatrix[index_1][index_2]=='0'){
 			if(i==0)
-				err=phrase(toStr(newStr[i+1]) +
+				err=phrase(toStr(cmd[i+1]) +
 				" can't be used in the beginning of a command, please read the docs");
-			else if(i==newStr.length()-2)
-				err=phrase(toStr(newStr[i]) + 
+			else if(i==cmd.length()-2)
+				err=phrase(toStr(cmd[i]) + 
 					" can't be used at the end of a command, please read the docs");
 			else{
-				err=phrase("The following characters can't be used in a sequence: "+ toStr(newStr[i])+
-				" and " + toStr(newStr[i+1]));
+				err=phrase("The following characters can't be used in a sequence: "+ toStr(cmd[i])+
+				" and " + toStr(cmd[i+1]));
 			};
 			break;
 		};
