@@ -1,18 +1,20 @@
 #include "noder.h"
-#include "helpers/helpers.h"
 
-std::vector<Node> noder(const std::vector<std::string>& tokens){
-    std::vector<Node> nodes;
+std::vector<Node*> noder(const std::vector<std::string>& tokens){
+    std::vector<Node*> nodes;
     for(auto token: tokens){
-        Node node;
+        Node* node=new Node;
         
         type type_t;
         type_t.dataType=dataRecognizer(token);
-        type_t.isOperator=isOpera(token);
-        node.type_t=type_t;
+        type_t.isOperator=isOperator(token);
+        node->type_t=type_t;
 
-        mixed mix;
-        mix.mixed_t=formater(type_t.dataType, token);//continue here next time
+        mixed mixed_t;
+        mixed_t.mixed_t=formatter(type_t.dataType, token);//continue here next time
+        node->data=mixed_t;
+
+        nodes.push_back(node);
     };
 
     return nodes;

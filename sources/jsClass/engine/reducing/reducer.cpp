@@ -2,5 +2,5 @@
 #include"reducer.h"
 
 std::string reducer(ParseTree tree){
-    return "reducing is done";//just for now
+    return "reducing the tree is not implemented yet";//just for now
 }

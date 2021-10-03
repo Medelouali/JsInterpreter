@@ -10,6 +10,7 @@ def formatted(num):
 
 def countLines():
     lines=0
+    print("Counting lines...")
     path=os.path.join(os.path.join(os.getcwd(), ".."), "sources")
     for dirpath, dirfiles, namefiles in os.walk(path):
         for file in namefiles:
