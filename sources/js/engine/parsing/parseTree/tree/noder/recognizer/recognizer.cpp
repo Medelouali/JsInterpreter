@@ -1,6 +1,4 @@
-#pragma once
-#include <string>
-
+#include "recognizer.h"
 
 std::string dataRecognizer(const std::string& data){
 

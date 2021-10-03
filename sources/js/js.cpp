@@ -7,6 +7,7 @@
 Js::Js(){
     this->info.insert({"software", "Interpreter"});
     this->info.insert({"version", "1.0.0"});
+    this->info.insert({"Language", "Enigma, it's a superset of JavaScript"});
     this->info.insert({"developper", "El Ouali Med"});
     this->info.insert({"description", "JavaScript interpreter that is written in C++"});
 };

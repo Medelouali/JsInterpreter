@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "./jsClass/js.h"
+#include "./js/js.h"
 
 int main(int argc, char **argv){
 	Js js=Js();
