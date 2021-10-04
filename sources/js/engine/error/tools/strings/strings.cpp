@@ -115,3 +115,21 @@ word operandIndex(long int start, const std::string& base, bool right){
         };
         return w;
 };
+
+std::vector<std::string> split(const std::string& base, char delimeter){
+        unsigned long int len=base.length();
+        std::string collect;
+        std::vector<std::string> result;
+        for(long unsigned int i=0; i<len; i++){
+                if(base[i]!=delimeter){
+                        collect.push_back(base[i]);
+                        if(i==len-1){
+                                result.push_back(collect);
+                        };
+                }else{
+                        if(collect.length()>0) result.push_back(collect);
+                        collect="";
+                };
+        };
+        return result;
+};

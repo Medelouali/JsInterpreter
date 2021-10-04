@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-
+#include <vector>
 
 typedef struct word{
     long int start=-1;
@@ -22,3 +22,4 @@ bool isCharIn(const std::string& base, char ch);
 
 word findWord(const std::string& base, const std::string& ph);
 word operandIndex(long int start, const std::string& base, bool right=false);
+std::vector<std::string> split(const std::string& base, char delimeter);

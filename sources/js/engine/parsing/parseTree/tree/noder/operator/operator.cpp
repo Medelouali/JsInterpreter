@@ -1,6 +1,19 @@
+#include <string>
+#include <vector>
 #include "operator.h"
 
 bool isOperator(const std::string& op){
+    std::vector<std::string> operators{
+        "&", "|", "+", "-", "=",
+        "!", ".", "~", "^", "*", "/", 
+        "%", "&&", "||", "==", "==="
+    };
 
-    return false;//just for now
+    bool exists=false;
+    for(auto op_t: operators)
+        if(op_t==op){
+            exists=true;
+            break;
+        };
+    return exists;
 };
