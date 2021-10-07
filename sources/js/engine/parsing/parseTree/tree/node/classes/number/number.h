@@ -12,6 +12,8 @@ class number{
         std::map<std::string, js::function> functions;
 
     public:
+        number(){
+        };
         number(const std::string& str){};
         number getNumber(void){ return *this;};   
         ~number(){};

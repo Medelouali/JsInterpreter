@@ -16,6 +16,8 @@ class array{
         std::map<std::string, js::function> functions;
 
     public:
+        array(){
+        };
         array(const std::string& ar){};
         array getArray(void){ return *this;};   
         ~array(){};

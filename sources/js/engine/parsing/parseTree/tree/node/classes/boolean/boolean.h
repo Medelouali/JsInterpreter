@@ -12,6 +12,8 @@ class boolean{
         std::map<std::string, js::function> functions;
 
     public:
+        boolean(){
+        };
         boolean(const std::string& str){};
         bool getBoolean(void){return false;};   
         ~boolean(){};

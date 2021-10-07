@@ -16,6 +16,8 @@ class tuple{
         std::map<std::string, js::function> functions;
 
     public:
+        tuple(){
+        };
         tuple(const std::string& st){};
         tuple getTuple(void){return *this;};   
         ~tuple(){};

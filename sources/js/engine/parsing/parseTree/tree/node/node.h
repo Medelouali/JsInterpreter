@@ -5,48 +5,27 @@
 #include <string>
 #include <variant>
 
-typedef struct mixed{
-    typedef std::variant< js::array<mixed>, js::boolean, js::number, js::object<mixed>, 
-        js::string, js::tuple<mixed> > any;
-    any mixed_t;
-    mixed(const any& str){
-        mixed_t=js::string("");
-    };
+class mixed{
+    private:
+        std::variant< js::array<mixed>, js::boolean, js::number, js::object<mixed>, 
+            js::string, js::tuple<mixed> > value;
+    public:
+        std::variant< js::array<mixed>, js::boolean, js::number, js::object<mixed>, 
+            js::string, js::tuple<mixed> > mixed_t;
 
-    any operator=(const any& rValue){
-            switch (rValue.index()){
-            case 0:
-                mixed_t=std::get<js::array<mixed>>(rValue);
-                break;
-            case 1:
-                mixed_t=std::get<js::boolean>(rValue);
-                break;
-            case 2:
-                mixed_t=std::get<js::number>(rValue);
-                break;
-            case 3:
-                mixed_t=std::get<js::object<mixed>>(rValue);
-                break;
-            case 4:
-                mixed_t=std::get<js::string>(rValue);
-                break;
-            case 5:
-                mixed_t=std::get<js::tuple<mixed>>(rValue);
-                break;
-            default:
-                break;
-            }
-    }
-} mixed;
+        mixed(): mixed_t(value){};
+        mixed(const std::variant< js::array<mixed>, js::boolean, js::number, js::object<mixed>, 
+            js::string, js::tuple<mixed> >& val): mixed_t(val){};
+};
 
-typedef struct type{
+struct type{
     bool isOperator=false;
     std::string dataType="number";
-} type;
+};
 
-typedef struct node{
+struct Node{
     type type_t;
-    mixed data(js::string(""));
-    node* parent=nullptr, *left=nullptr, *right=nullptr;
-} Node;
+    mixed data();
+    Node* parent=nullptr, *left=nullptr, *right=nullptr;
+} ;
 

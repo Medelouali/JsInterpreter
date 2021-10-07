@@ -12,6 +12,7 @@ class string{
         std::map<std::string, js::function> functions;
 
     public:
+        string(): string_t(""){};
         string(const std::string& st): string_t(st){};
         std::string getString(void){ return "";};   
         ~string(){};

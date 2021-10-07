@@ -10,9 +10,9 @@ std::vector<Node*> noder(const std::vector<std::string>& tokens){
         type_t.isOperator=isOperator(token);
         node->type_t=type_t;
 
-        mixed mixed_t;
-        mixed_t.mixed_t=formatter(type_t.dataType, token);//continue here next time
-        node->data=mixed_t;
+        mixed mixed_t(formatter(type_t.dataType, token));
+        //mixed_t.mixed_t=formatter(type_t.dataType, token);//continue here next time
+        node->data.mixed_t=mixed_t;
 
         nodes.push_back(node);
     };

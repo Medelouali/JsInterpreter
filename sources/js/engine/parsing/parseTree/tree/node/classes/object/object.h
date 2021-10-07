@@ -13,6 +13,8 @@ class object{
         std::map<std::string, js::function> functions;
 
     public:
+        object(){
+        };
         object(const std::string& st){};
         object getObject(void){ return *this;};   
         ~object(){};
