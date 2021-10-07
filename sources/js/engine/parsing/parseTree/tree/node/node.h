@@ -25,7 +25,7 @@ struct type{
 
 struct Node{
     type type_t;
-    mixed data();
+    mixed data;
     Node* parent=nullptr, *left=nullptr, *right=nullptr;
 } ;
 

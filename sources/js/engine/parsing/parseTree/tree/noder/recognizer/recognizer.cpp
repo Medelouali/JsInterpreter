@@ -15,7 +15,7 @@ std::string dataRecognizer(const std::string& data){
     if(match(data, "(\".*\"|'.*'|`.*`)")) return "string";
 
     //parsing functon
-    if(match(data, "\\w+(\\w|\\d)*\(.*\)({.*})?")){
+    if(match(data, "\\w+(\\w|\\d)*\\(.*\\)({.*})?")){
         if(dataRecognizer(slice(indexOfChar(data, '('), indexOfChar(data, ')'), data))=="tuple" )
             return "function";
         return "unkown"; 

@@ -12,7 +12,7 @@ std::vector<Node*> noder(const std::vector<std::string>& tokens){
 
         mixed mixed_t(formatter(type_t.dataType, token));
         //mixed_t.mixed_t=formatter(type_t.dataType, token);//continue here next time
-        node->data.mixed_t=mixed_t;
+        node->data=mixed_t;
 
         nodes.push_back(node);
     };
