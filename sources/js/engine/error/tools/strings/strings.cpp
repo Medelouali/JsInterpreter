@@ -116,6 +116,17 @@ word operandIndex(long int start, const std::string& base, bool right){
         return w;
 };
 
+bool inclosed(const std::string& base, long int index){
+        if(index<=1 || index>=base.length()-1) return false;
+        if(     countChar(slice(0, index-1, base), '"')%2==1  || 
+                countChar(slice(0, index-1, base), '\'')%2==1 ||
+                countChar(slice(0, index-1, base), '(')%2==1  ||
+                countChar(slice(0, index-1, base), '{')%2==1  ||
+                countChar(slice(0, index-1, base), '~')%2==1
+        ) return true;
+        return false;
+}
+
 std::vector<std::string> split(const std::string& base, char delimeter){
         unsigned long int len=base.length();
         std::string collect;
@@ -127,8 +138,10 @@ std::vector<std::string> split(const std::string& base, char delimeter){
                                 result.push_back(collect);
                         };
                 }else{
-                        if(collect.length()>0) result.push_back(collect);
-                        collect="";
+                        if(!inclosed(base, i)){
+                                if(collect.length()>0) result.push_back(collect);
+                                collect="";
+                        }
                 };
         };
         return result;

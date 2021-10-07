@@ -23,3 +23,4 @@ bool isCharIn(const std::string& base, char ch);
 word findWord(const std::string& base, const std::string& ph);
 word operandIndex(long int start, const std::string& base, bool right=false);
 std::vector<std::string> split(const std::string& base, char delimeter);
+bool inclosed(const std::string& base, long int i);
