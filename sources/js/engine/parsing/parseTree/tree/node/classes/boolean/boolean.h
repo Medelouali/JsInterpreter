@@ -2,21 +2,37 @@
 #include <string>
 #include <map>
 #include "../shared/shared.h"
+#include "../number/number.h"
 
 namespace js{
 
 class boolean{
     private:
         bool boolean_t;
-        std::map<std::string, js::attribute> attributes;
-        std::map<std::string, js::function> functions;
+        
 
     public:
-        boolean(){
-        };
-        boolean(const std::string& str){};
-        bool getBoolean(void){return false;};   
+        boolean(){};
+        boolean(const bool& flag): boolean_t(flag){};
+        boolean(const std::string& str);
+        boolean(const short unsigned int& num);
+
+        bool getBoolean(void);
+        short unsigned int boolToNumber(void);
+
+        //some operators on booleans
+        boolean operator||(const boolean& b);
+        boolean operator&&(const boolean& b);
+        boolean operator|(const boolean& b);
+        boolean operator&(const boolean& b);
+        
+        number operator+(boolean b);
+        number operator-(boolean b);
+        number operator*(boolean b);
+        number operator/(boolean b);
+
         ~boolean(){};
 };  
 
 };
+

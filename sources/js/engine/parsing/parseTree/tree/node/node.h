@@ -8,14 +8,15 @@
 class mixed{
     private:
         std::variant< js::array<mixed>, js::boolean, js::number, js::object<mixed>, 
-            js::string, js::tuple<mixed> > value;
+            js::string, js::tuple<mixed>, js::null, js::undefined> value;
     public:
         std::variant< js::array<mixed>, js::boolean, js::number, js::object<mixed>, 
-            js::string, js::tuple<mixed> > mixed_t;
+            js::string, js::tuple<mixed>, js::null, js::undefined > mixed_t;
 
         mixed(): mixed_t(value){};
         mixed(const std::variant< js::array<mixed>, js::boolean, js::number, js::object<mixed>, 
-            js::string, js::tuple<mixed> >& val): mixed_t(val){};
+            js::string, js::tuple<mixed>, js::null, js::undefined >& val): 
+            mixed_t(val){};
 };
 
 struct type{

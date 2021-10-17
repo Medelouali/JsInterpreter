@@ -8,17 +8,26 @@ namespace js{
 template<typename T>
 class object{
     private:
-        std::map<std::string, T> object_t;
-        std::map<std::string, js::attribute> attributes;
-        std::map<std::string, js::function> functions;
-
+        std::map<T, T> object_t;
     public:
-        object(){
+        object(){};
+        //adding keys into the map
+        void addPair(const T& key, const T& value){
+            object_t.insert({key, value});
         };
-        object(const std::string& st){};
-        object getObject(void){ return *this;};   
-        ~object(){};
-};  
-
+        //modifying the value pointed by a key
+        void modifyPair(const T& key, const T& value){
+            object_t[key]=value;
+        };
+        //removing key-value pair
+        void removePair(const T& key){
+            object_t.erase(key);
+        };
+        //retrieving data
+        T operator[](const T& key){
+            return object_t[key];
+        };  
+        ~object(){};  
+};
 };
 
