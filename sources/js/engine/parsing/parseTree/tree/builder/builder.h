@@ -3,4 +3,4 @@
 #include <vector>
 #include "../node/node.h"
 
-Node* builder(const std::vector<Node*>& nodes);
+Node* builder(std::vector<Node*>& nodes);

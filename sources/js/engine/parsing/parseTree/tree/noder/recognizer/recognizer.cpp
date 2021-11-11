@@ -6,8 +6,15 @@ bool match(const std::string& str, const std::string& re){
     std::regex reg("$" + re + "^");
     return std::regex_match(str.begin(), str.end(), reg);
 };
+const std::vector<std::string> ops{
+        ".", "!", "~", "%", "^","*", "/", "+", "-",
+        "&", "|", "&&", "||", "==", "===", "="
+    };
 
 std::string dataRecognizer(const std::string& data){
+    bool operator_t=false;
+    for(auto x: ops)if(x==data){ operator_t=true; break; };
+    if(operator_t) return "operator";
     if(match(data, "\\d+")) return "number";
     if(match(data, "(true|false)")) return "boolean";
     if(match(data, "null")) return "null";
@@ -34,8 +41,8 @@ std::string dataRecognizer(const std::string& data){
                         obj="unkown";
                         break;
                     };
-            }
-        }
+            };
+        };
         return obj;
     };
     //parsing arrays
@@ -63,8 +70,8 @@ std::string dataRecognizer(const std::string& data){
                 break;
             };
         };
-        return obj;
+        return "unkown";
     };
 
-    return "unkown";
+    return data;
 };

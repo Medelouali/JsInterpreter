@@ -9,8 +9,9 @@ int main(int argc, char **argv){
 	do{
 		std::cout<<">> ";
 		getline(std::cin, line);
+		if(line=="exit") break;
 		result=js.process(line);
-		if(result!="") std::cout<<">> "<<js.process(line)<<std::endl;
+		if(result!="") std::cout<<">> "<<result<<std::endl;
 	}while(true);
 	return 0;
 };

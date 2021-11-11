@@ -2,7 +2,7 @@
 #include<string>
 #include"parser.h"
 
-ParseTree parser(std::vector<std::string> vect){
+ParseTree parser(std::vector<std::string> tokens){
     ParseTree tree;
 
     return tree;
